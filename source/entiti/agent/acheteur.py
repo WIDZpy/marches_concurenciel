@@ -1,3 +1,4 @@
+
 def generaion_acheteur(nb: int):
 	for acheteur in range(nb):
 		pass
