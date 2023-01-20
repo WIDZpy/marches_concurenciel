@@ -24,7 +24,6 @@ class Acheteur(_agent.Agent):
                 self.acquerir_bien(bien)
 
 
-
 if __name__ == '__main__':
     ach = Acheteur()
     ven = _vendeur.Vendeur()
