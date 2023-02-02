@@ -1,16 +1,15 @@
+import json
+
 import source.entiti.agent as _agent
 import source.entiti.agent.vendeur as _vendeur
 import source.entiti.bien as _bien
 
-
-def generaion_acheteur(nb: int = 1, paterne: str = 'void'):
-    for acheteur in range(nb):
-        pass
-
+with open(".json", "r") as default:
+    DEFAULT_PARAMETRE = json.load(default)
 
 class Acheteur(_agent.Agent):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, sold):
+        super().__init__(sold)
 
     def peux_achete(self, prix):
         return prix >= self.sold
@@ -19,7 +18,6 @@ class Acheteur(_agent.Agent):
         if self.peux_achete(prix):
             if sible.get_vend(bien, prix, quantite):
                 self.sold -= prix
-
                 sible.vend(bien, prix, quantite)
                 self.acquerir_bien(bien)
 

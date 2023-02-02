@@ -5,25 +5,23 @@ import json
 
 
 class Agent(_entite.Entite):
-    """
-    oui ?
-    """
-    def __init__(self):
-        """non """
+    def __init__(self, sold):
+        """un agent est une entité économique capable d'aquérire ou perdre des bien"""
         super().__init__()
         self.stock = {}
-        self.sold = 10
+        self.sold = sold
 
-    def acquerir_bien(self, bien: _bien.Bien, quantite: int = 1) -> None:
-        """
-        :
-        fait aquérire une certaine quentité d'un objet BIen a l'agent
-        """
-        self.stock.update({bien: self.stock.get(bien, 0) + quantite})
+    ##########################---bien---##########################
 
     def a_bien(self, bien: _bien.Bien, quantite: int = 1) -> bool:
         """:return: true si l'afent a en quentité sufisente le bien"""
         return self.stock.get(bien, 0) >= quantite
+
+    def acquerir_bien(self, bien: _bien.Bien, quantite: int = 1) -> None:
+        """
+        fait aquérire une certaine quentité d'un objet BIen a l'agent
+        """
+        self.stock.update({bien: self.stock.get(bien, 0) + quantite})
 
     def perdre_bien(self, bien: _bien.Bien, quantite: int = 1):
         if self.a_bien(bien, quantite):
@@ -34,4 +32,5 @@ class Agent(_entite.Entite):
 
 
 if __name__ == '__main__':
-    Agent()
+    a = Agent()
+    a.pay(a)

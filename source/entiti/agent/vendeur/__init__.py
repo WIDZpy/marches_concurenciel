@@ -7,7 +7,6 @@ class Vendeur(_agent.Agent):
         super().__init__()
 
     def vend(self, bien: _bien.Bien, prix, quantite: int = 1):
-        self.sold += prix
         self.perdre_bien(bien, quantite)
 
     def get_vend(self, bien: _bien.Bien, prix, quantite: int = 1):

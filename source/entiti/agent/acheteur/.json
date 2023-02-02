@@ -1,6 +1,3 @@
 {
-  "void": {
-    "money": 0,
-    "couleur": []
-  }
+  "sold":0
 }
